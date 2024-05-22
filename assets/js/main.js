@@ -123,3 +123,31 @@ $(document).ready(function () {
   });
 });
 // testimonial end
+
+// swipper slider services-slider start
+const swiperEl = document.querySelector("swiper-container");
+Object.assign(swiperEl, {
+  slidesPerView: 1,
+  spaceBetween: 10,
+  pagination: {
+    clickable: true,
+  },
+  breakpoints: {
+    "@0.00": {
+      slidesPerView: 1,
+      spaceBetween: 10,
+    },
+
+    "@1.75": {
+      slidesPerView: 2,
+      spaceBetween: 50,
+    },
+    "@2.00": {
+      slidesPerView: 3,
+      spaceBetween: 50,
+    },
+  },
+});
+
+swiperEl.initialize();
+// swipper slider services-slider end
