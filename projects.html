@@ -31,13 +31,6 @@
     <!-- custom css -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Digital Agency -> projects</title>
-
-    <style>
-
-    </style>
-    <style>
-
-    </style>
 </head>
 
 <body>
@@ -81,6 +74,7 @@
             </div>
         </div>
     </header>
+
     <section class="breadcrumb">
         <div class="container">
             <div class="row">
@@ -113,929 +107,374 @@
         </ul>
     </div>
     <style>
-        #projects {
+        .project-section {
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            /* padding: 20px; */
+            flex-direction: column;
+            align-items: center;
+            height: 100vH;
+            background-color: #F5F5F5;
+            font-family: Roboto;
+        }
+
+        .project-section h1 {
+            font-size: 40pt;
+            font-weight: 500;
+            color: #363638;
+        }
+
+        .project-section .project-container {
+            margin-top: 50px;
+            display: flex;
             justify-content: center;
+            flex-wrap: wrap;
+            width: 80%;
         }
 
-        .project {
-            width: calc(33.333% - 20px);
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            overflow: hidden;
+        .project-section .item {
             position: relative;
-            /* background-color: #fff; */
-            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        .project:hover {
-            transform: translateY(-10px);
-            /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); */
-        }
-
-        .project-content {
-            padding: 5rem 0rem;
-            transition: transform 0.3s ease-in-out;
-            min-height: 25rem;
-        }
-
-        .full-project {
-            position: absolute;
-            bottom: -100%;
-            left: 0;
+            float: left;
+            overflow: hidden;
+            margin: 10px 1%;
+            min-width: 320px;
+            max-width: 410px;
             width: 100%;
-            padding: 20px;
-            /* background: rgba(255, 255, 255, 0.95); */
-            /* box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); */
-            transform: translateY(100%);
-            transition: transform 5s ease-in-out;
-            /* Increase duration here */
+            text-align: center;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+            box-sizing: border-box;
         }
 
-        .project:hover .full-project {
-            transform: translateY(0%);
+        .project-section .item:hover {
+            cursor: pointer;
         }
 
-        @media (max-width: 768px) {
-            .project {
-                width: calc(50% - 20px);
+        .project-section .item * {
+            transition: all 0.35s ease-in-out;
+        }
+
+        .project-section img {
+            max-width: 100%;
+            vertical-align: top;
+            height: 310px;
+        }
+
+        .project-section .item:hover img {
+            opacity: 0.3;
+            /* background-color: #01A2AC; */
+        }
+
+        .project-section .text {
+            width: 80%;
+            height: 90%;
+            position: absolute;
+            top: -100px;
+            left: 10%;
+            color: #01A2AC;
+        }
+
+        .project-section .text h3 {
+            color: black;
+        }
+
+        .project-section .item:hover .text {
+            top: 20%;
+        }
+
+        .project-section .item:hover .button {
+            bottom: 20%;
+        }
+
+        .project-section .item .button {
+            position: absolute;
+            bottom: -100px;
+            left: 25%;
+            width: 50%;
+            border: 3px solid #01A2AC;
+            padding: 15px;
+            box-sizing: border-box;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .project-section .button:hover {
+            background-color: #01A2AC;
+            color: #F5F5F5;
+        }
+
+        /* Modal */
+
+        .project-section .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .project-section .modal-content {
+            background-color: #F5F5F5;
+            margin: 5% auto;
+            box-sizing: border-box;
+            width: 700px;
+            max-height: 714px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-section .scale {
+            animation: scale 0.5s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes scale {
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: scale(1);
             }
         }
 
-        @media (max-width: 480px) {
-            .project {
-                width: 100%;
-            }
+        .project-section #img {
+            width: 100%;
+            height: 450px;
+        }
+
+        .project-section #details {
+            padding: 25px;
+            text-align: left;
+            position: relative;
+            height: 264px;
+            box-sizing: border-box;
+            border-top: 1px solid #363638;
+        }
+
+        .project-section #details * {
+            transition: all .3s;
+        }
+
+        .project-section #title {
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .project-section #details .button {
+            position: absolute;
+            width: 30%;
+            background-color: #01A2AC;
+            color: #F5F5F5;
+            text-align: center;
+            left: 25px;
+            bottom: 35px;
+            padding: 15px;
+        }
+
+        .project-section #details i {
+            position: absolute;
+            bottom: 30px;
+            right: 25px;
+            font-size: 3rem;
+            color: #01A2AC;
+        }
+
+        .project-section #details .button:hover,
+        i:hover {
+            cursor: pointer;
+            opacity: 0.8;
+        }
+
+        /* Close Button */
+        .project-section .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            right: 10px;
+        }
+
+        .project-section .close:hover,
+        .project-section .close:focus {
+            color: #363638;
+            text-decoration: none;
+            cursor: pointer;
         }
     </style>
-    <section id="projects" style="padding-top: 7rem;">
-        <div class="project">
-            <div class="project-content">
-                <h3>Project Title 1</h3>
-                <p>Short description of the project.</p>
-                <div class="full-project">
-                    <p>Detailed description and additional information about Project 1. This content will appear on
-                        hover.</p>
-                    <img src="./assets/images/screencapture-127-0-0-1-5501-about-html-2024-05-28-18_15_14.png" />
+    <section class="project-section">
+        <div class="container project-container">
+            <div class="row">
+                <div class="col-sm-6 col-lg-6 col-xl-4 py-3">
+                    <div class="item" id="1">
+                        <img src="https://images.unsplash.com/photo-1508124780861-b1687f9a13e5?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f841d43a63c085e930aa5b6b33e89a9f&auto=format&fit=crop&w=1385&q=80"
+                            alt="" class="rounded">
+                        <div class="text">
+                            <h3>PROJECT 1</h4>
+                                <p>Short Description</p>
+                        </div>
+                        <div class="button">Learn More</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-6 col-xl-4 py-3">
+                    <div class="item" id="2">
+                        <img src="https://images.unsplash.com/photo-1496492352121-593138d42a61?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3542849cc0459345e3aa82a90ae51a01&auto=format&fit=crop&w=1350&q=80"
+                            alt="" class="rounded">
+                        <div class="text">
+                            <h3>PROJECT 2</h4>
+                                <p>Short Description</p>
+                        </div>
+                        <div class="button">Learn More</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-6 col-xl-4 py-3">
+
+                    <div class="item" id="3">
+                        <img src="https://images.unsplash.com/photo-1515215676803-119c88d493cf?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=baf00747bfb9fe41ad9af8cf00dbebbf&auto=format&fit=crop&w=1350&q=80"
+                            alt="" class="rounded">
+                        <div class="text">
+                            <h3>PROJECT 3</h4>
+                                <p>Short Description</p>
+                        </div>
+                        <div class="button">Learn More</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-6 col-xl-4 py-3">
+                    <div class="item" id="4">
+                        <img src="https://images.unsplash.com/photo-1496939217462-7d42e9a74f0e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5e3be993a88feed38e4f5374ff3ba115&auto=format&fit=crop&w=1350&q=80g"
+                            alt="" class="rounded">
+                        <div class="text">
+                            <h3>PROJECT 4</h4>
+                                <p>Short Description</p>
+                        </div>
+                        <div class="button">Learn More</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-6 col-xl-4 py-3">
+
+                    <div class="item" id="5">
+                        <img src="https://images.unsplash.com/photo-1504875427817-937a8a12e167?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cd7f399ba43093ead08e7dbf5e083f09&auto=format&fit=crop&w=1434&q=80"
+                            alt="" class="rounded">
+                        <div class="text">
+                            <h3>PROJECT 5</h4>
+                                <p>Short Description</p>
+                        </div>
+                        <div class="button">Learn More</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-6 col-xl-4 py-3">
+                    <div class="item" id="6">
+                        <img src="https://images.unsplash.com/photo-1493962853295-0fd70327578a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f758b0379f730e73c03b6153aaad7cf1&auto=format&fit=crop&w=1350&q=80"
+                            alt="" class="rounded">
+                        <div class="text">
+                            <h3>PROJECT 6</h4>
+                                <p>Short Description</p>
+                        </div>
+                        <div class="button">Learn More</div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="project">
-            <div class="project-content">
-                <h3>Project Title 2</h3>
-                <p>Short description of the project.</p>
-                <div class="full-project">
-                    <p>Detailed description and additional information about Project 2. This content will appear on
-                        hover.</p>
-                    <img src="./assets/images/screencapture-127-0-0-1-5501-about-html-2024-05-28-18_15_14.png" />
+
+        <!-- Modal -->
+        <div id="preview" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <img id="img" src="">
+                <div id="details">
+                    <h3 id="title"></h3>
+                    <p id="info">Some text</p>
+                    <div class="button" id="live">View</div>
+                    <i class="fab fa-github-square" id="github"></i>
                 </div>
             </div>
         </div>
-        <script>
-            // scripts.js
-
-            // scripts.js
-
-            // scripts.js
-
-            document.addEventListener('DOMContentLoaded', () => {
-                const projects = document.querySelectorAll('.project');
-
-                projects.forEach(project => {
-                    project.addEventListener('click', () => {
-                        const fullProject = project.querySelector('.full-project');
-                        const isVisible = fullProject.style.transform === 'translateY(0%)';
-
-                        // Hide all full project descriptions
-                        document.querySelectorAll('.full-project').forEach(fp => {
-                            fp.style.transform = 'translateY(100%)';
-                        });
-
-                        // Toggle the clicked one
-                        fullProject.style.transform = isVisible ? 'translateY(100%)' : 'translateY(0%)';
-                    });
-                });
-
-                // Close the full project detail when clicking outside
-                document.addEventListener('click', (e) => {
-                    if (!e.target.closest('.project')) {
-                        document.querySelectorAll('.full-project').forEach(fp => {
-                            fp.style.transform = 'translateY(100%)';
-                        });
-                    }
-                });
-            });
-
-
-        </script>
-        <section class="features-section" style="padding: 5rem 0rem;">
+    </section>
+    <footer>
+        <div class="footer-top">
             <div class="container">
-                <h2 class="features-title text-center pb-5">Our Features</h2>
-                <div class="row">
-                    <div class="col-sm-6 col-md-6 col-xl-4 col-xxl-3 py-3 py-xl-0">
-                        <div class="card w-100 h-100 p-4 border-0 services-section-card">
-                            <div class=" w-25 h-25"><img src="./assets/images/icons/Animation - 1715854291186.gif"
-                                    class="img-fluid" alt="Here is an image" /></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Web & Mobile Development</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-                                    beatae
-                                    nemo unde distinctio nostrum earum dolore cupiditate sed rerum nam voluptas,
-                                    suscipit
-                                    ratione soluta explicabo, iure, ullam maiores numquam? Earum.</p>
-                                <a href="#">
-                                    <button class="animated-button">
-                                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                        <span class="text">Read More</span>
-                                        <span class="circle"></span>
-                                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-xl-4 col-xxl-3 py-3 py-xl-0">
-                        <div class="card w-100 h-100 p-4 border-0 services-section-card">
-                            <div class=" w-25 h-25"><img src="./assets/images/icons/Animation - 1715854291186.gif"
-                                    class="img-fluid" alt="Here is an image" /></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Web & Mobile Development</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-                                    beatae
-                                    nemo unde distinctio nostrum earum dolore cupiditate sed rerum nam voluptas,
-                                    suscipit
-                                    ratione soluta explicabo, iure, ullam maiores numquam? Earum.</p>
-                                <a href="#">
-                                    <button class="animated-button">
-                                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                        <span class="text">Read More</span>
-                                        <span class="circle"></span>
-                                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-xl-4 col-xxl-3 py-3 py-xl-0">
-                        <div class="card w-100 h-100 p-4 border-0 services-section-card">
-                            <div class=" w-25 h-25"><img src="./assets/images/icons/Animation - 1715854291186.gif"
-                                    class="img-fluid" alt="Here is an image" /></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Web & Mobile Development</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-                                    beatae
-                                    nemo unde distinctio nostrum earum dolore cupiditate sed rerum nam voluptas,
-                                    suscipit
-                                    ratione soluta explicabo, iure, ullam maiores numquam? Earum.</p>
-                                <a href="#">
-                                    <button class="animated-button">
-                                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                        <span class="text">Read More</span>
-                                        <span class="circle"></span>
-                                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-xl-4 col-xxl-3 py-3 py-xl-0">
-                        <div class="card w-100 h-100 p-4 border-0 services-section-card">
-                            <div class=" w-25 h-25"><img src="./assets/images/icons/Animation - 1715854291186.gif"
-                                    class="img-fluid" alt="Here is an image" /></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Web & Mobile Development</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-                                    beatae
-                                    nemo unde distinctio nostrum earum dolore cupiditate sed rerum nam voluptas,
-                                    suscipit
-                                    ratione soluta explicabo, iure, ullam maiores numquam? Earum.</p>
-                                <a href="#">
-                                    <button class="animated-button">
-                                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                        <span class="text">Read More</span>
-                                        <span class="circle"></span>
-                                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="services-section py-5 d-none">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-md-6 col-xxl-4 py-3 py-xl-0">
-                        <div class="card w-100 h-100 p-4 border-0 services-section-card">
-                            <div class=" w-25 h-25"><img src="./assets/images/icons/Animation - 1715854291186.gif"
-                                    class="img-fluid" alt="Here is an image" /></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Web & Mobile Development</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-                                    beatae
-                                    nemo unde distinctio nostrum earum dolore cupiditate sed rerum nam voluptas,
-                                    suscipit
-                                    ratione soluta explicabo, iure, ullam maiores numquam? Earum.</p>
-                                <a href="#">
-                                    <button class="animated-button">
-                                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                        <span class="text">Read More</span>
-                                        <span class="circle"></span>
-                                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-xxl-4 py-3 py-xl-0">
-                        <div class="card w-100 h-100 p-4 border-0 services-section-card">
-                            <div class=" w-25 h-25"><img src="./assets/images/icons/Animation - 1715854291186.gif"
-                                    class="img-fluid" alt="Here is an image" /></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Web & Mobile Development</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-                                    beatae
-                                    nemo unde distinctio nostrum earum dolore cupiditate sed rerum nam voluptas,
-                                    suscipit
-                                    ratione soluta explicabo, iure, ullam maiores numquam? Earum.</p>
-                                <a href="#">
-                                    <button class="animated-button">
-                                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                        <span class="text">Read More</span>
-                                        <span class="circle"></span>
-                                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-xxl-4 py-3 py-xl-0">
-                        <div class="card w-100 h-100 p-4 border-0 services-section-card">
-                            <div class=" w-25 h-25"><img src="./assets/images/icons/Animation - 1715854291186.gif"
-                                    class="img-fluid" alt="Here is an image" /></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Web & Mobile Development</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-                                    beatae
-                                    nemo unde distinctio nostrum earum dolore cupiditate sed rerum nam voluptas,
-                                    suscipit
-                                    ratione soluta explicabo, iure, ullam maiores numquam? Earum.</p>
-                                <a href="#">
-                                    <button class="animated-button">
-                                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                        <span class="text">Read More</span>
-                                        <span class="circle"></span>
-                                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="services-section" style="padding: 5rem 0rem;">
-            <div class="container">
-                <div class="d-flex justify-content-center">
-                    <div class="pb-4 top-title">
-                        <p class="fs-4 fw-normal text-warning text-center">Services</p>
-                        <h2 class="">We will provide awesome
-                            services</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <swiper-container class="mySwiper" init="false">
-                        <swiper-slide>
-                            <div class="card w-100 h-100 p-4 border-0 services-section-card">
-                                <div class=""><img src="./assets/images/slider image 1.png" class="img-fluid"
-                                        alt="Here is an image" /></div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Web & Mobile Development</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Officia
-                                        beatae
-                                        nemo unde distinctio nostrum earum dolore cupiditate sed rerum nam voluptas,
-                                        suscipit
-                                        ratione soluta explicabo, iure, ullam maiores numquam? Earum.</p>
-                                    <a href="#">
-                                        <button class="animated-button">
-                                            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                                </path>
-                                            </svg>
-                                            <span class="text">Read More</span>
-                                            <span class="circle"></span>
-                                            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                                </path>
-                                            </svg>
-                                        </button>
-                                    </a>
-                                </div>
-                            </div>
-                        </swiper-slide>
-                        <swiper-slide>
-                            <div class="card w-100 h-100 p-4 border-0 services-section-card">
-                                <div class=""><img src="./assets/images/slider image 1.png" class="img-fluid"
-                                        alt="Here is an image" /></div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Web & Mobile Development</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Officia
-                                        beatae
-                                        nemo unde distinctio nostrum earum dolore cupiditate sed rerum nam voluptas,
-                                        suscipit
-                                        ratione soluta explicabo, iure, ullam maiores numquam? Earum.</p>
-                                    <a href="#">
-                                        <button class="animated-button">
-                                            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                                </path>
-                                            </svg>
-                                            <span class="text">Read More</span>
-                                            <span class="circle"></span>
-                                            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                                </path>
-                                            </svg>
-                                        </button>
-                                    </a>
-                                </div>
-                            </div>
-                        </swiper-slide>
-                        <swiper-slide>
-                            <div class="card w-100 h-100 p-4 border-0 services-section-card">
-                                <div class=""><img src="./assets/images/slider image 1.png" class="img-fluid"
-                                        alt="Here is an image" /></div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Web & Mobile Development</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Officia
-                                        beatae
-                                        nemo unde distinctio nostrum earum dolore cupiditate sed rerum nam voluptas,
-                                        suscipit
-                                        ratione soluta explicabo, iure, ullam maiores numquam? Earum.</p>
-                                    <a href="#">
-                                        <button class="animated-button">
-                                            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                                </path>
-                                            </svg>
-                                            <span class="text">Read More</span>
-                                            <span class="circle"></span>
-                                            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                                </path>
-                                            </svg>
-                                        </button>
-                                    </a>
-                                </div>
-                            </div>
-                        </swiper-slide>
-                        <swiper-slide>
-                            <div class="card w-100 h-100 p-4 border-0 services-section-card">
-                                <div class=""><img src="./assets/images/slider image 1.png" class="img-fluid"
-                                        alt="Here is an image" /></div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Web & Mobile Development</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Officia
-                                        beatae
-                                        nemo unde distinctio nostrum earum dolore cupiditate sed rerum nam voluptas,
-                                        suscipit
-                                        ratione soluta explicabo, iure, ullam maiores numquam? Earum.</p>
-                                    <a href="#">
-                                        <button class="animated-button">
-                                            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                                </path>
-                                            </svg>
-                                            <span class="text">Read More</span>
-                                            <span class="circle"></span>
-                                            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                                </path>
-                                            </svg>
-                                        </button>
-                                    </a>
-                                </div>
-                            </div>
-                        </swiper-slide>
-                        <swiper-slide>
-                            <div class="card w-100 h-100 p-4 border-0 services-section-card">
-                                <div class=""><img src="./assets/images/slider image 1.png" class="img-fluid"
-                                        alt="Here is an image" /></div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Web & Mobile Development</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Officia
-                                        beatae
-                                        nemo unde distinctio nostrum earum dolore cupiditate sed rerum nam voluptas,
-                                        suscipit
-                                        ratione soluta explicabo, iure, ullam maiores numquam? Earum.</p>
-                                    <a href="#">
-                                        <button class="animated-button">
-                                            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                                </path>
-                                            </svg>
-                                            <span class="text">Read More</span>
-                                            <span class="circle"></span>
-                                            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                                </path>
-                                            </svg>
-                                        </button>
-                                    </a>
-                                </div>
-                            </div>
-                        </swiper-slide>
-                    </swiper-container>
-                </div>
-                <div class="row d-none">
-                    <div class="col-sm-6 col-md-6 col-xxl-4 py-3 py-xl-0">
-                        <div class="card w-100 h-100 p-4 border-0 services-section-card">
-                            <div class=""><img src="./assets/images/slider image 1.png" class="img-fluid"
-                                    alt="Here is an image" /></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Web & Mobile Development</h5>
-                                <p class="card-text text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Officia
-                                    beatae
-                                    nemo unde distinctio nostrum earum dolore cupiditate sed rerum nam voluptas,
-                                    suscipit
-                                    ratione soluta explicabo, iure, ullam maiores numquam? Earum.</p>
-                                <a href="#">
-                                    <button class="animated-button">
-                                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                        <span class="text">Read More</span>
-                                        <span class="circle"></span>
-                                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-xxl-4 py-3 py-xl-0">
-                        <div class="card w-100 h-100 p-4 border-0 services-section-card">
-                            <div class=""><img src="./assets/images/slider image 2.png" class="img-fluid"
-                                    alt="Here is an image" /></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Web & Mobile Development</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-                                    beatae
-                                    nemo unde distinctio nostrum earum dolore cupiditate sed rerum nam voluptas,
-                                    suscipit
-                                    ratione soluta explicabo, iure, ullam maiores numquam? Earum.</p>
-                                <a href="#">
-                                    <button class="animated-button">
-                                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                        <span class="text">Read More</span>
-                                        <span class="circle"></span>
-                                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-xxl-4 py-3 py-xl-0">
-                        <div class="card w-100 h-100 p-4 border-0 services-section-card">
-                            <div class=""><img src="./assets/images/slider image 3.png" class="img-fluid"
-                                    alt="Here is an image" /></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Web & Mobile Development</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-                                    beatae
-                                    nemo unde distinctio nostrum earum dolore cupiditate sed rerum nam voluptas,
-                                    suscipit
-                                    ratione soluta explicabo, iure, ullam maiores numquam? Earum.</p>
-                                <a href="#">
-                                    <button class="animated-button">
-                                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                        <span class="text">Read More</span>
-                                        <span class="circle"></span>
-                                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="counter-up-section" style="padding: 5rem 0rem;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 py-3 py-xl-0">
-                        <div class="counter">
-                            <div class="counter-icon">
-                                <i class="fa fa-globe"></i>
-                            </div>
-                            <div class="counter-content">
-                                <h3>Web Development</h3>
-                                <h2 data-max="50" class="counter-value">+</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 py-3 py-xl-0">
-                        <div class="counter blue">
-                            <div class="counter-icon">
-                                <i class="fa fa-rocket"></i>
-                            </div>
-                            <div class="counter-content">
-                                <h3>Web Design</h3>
-                                <h2 data-max="50" class="counter-value">+</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 py-3 py-xl-0">
-                        <div class="counter red">
-                            <div class="counter-icon">
-                                <i class="fa fa-briefcase"></i>
-                            </div>
-                            <div class="counter-content">
-                                <h3>Web Design</h3>
-                                <h2 data-max="50" class="counter-value">+</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 py-3 py-xl-0">
-                        <div class="counter gray">
-                            <div class="counter-icon">
-                                <i class="fa fa-mobile"></i>
-                            </div>
-                            <div class="counter-content">
-                                <h3>Web Design</h3>
-                                <h2 data-max="50" class="counter-value">+</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="case-studies-section" style="background-color: #01f0f415; padding: 5rem 0rem;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-lg-6">
-                        <div class="sticky-top">
-                            <div style="padding-top: 20rem;">
-                                <h2 class="fs-1 fw-bold">Case Study</h2>
-                                <p class="w-75">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus
-                                    modi
-                                    deleniti ipsum
-                                    rem illum doloribus labore atque, cum nemo ipsa beatae dolores voluptatibus?
-                                    Dignissimos
-                                    ex, a provident sapiente impedit non.</p>
-                                <a href="#" class="animated-button text-dark">
-                                    Read More
-                                    <svg class="pxl-svg-line" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 407">
-                                        <path
-                                            d="M972.93,86.54S671-39.25,337.37,29.6c-80.16,16.54-161,42.55-230.72,86.3-41.44,26-92,65.5-97.81,118.12-6,54.11,45,90.17,88,110.52,70.87,33.53,149.4,43.59,226.73,49.23,125.73,9.17,252.43,1.74,377.33-14.07,51.43-6.5,102.76-14.71,152.76-28.37,61-16.66,156.08-57.51,137.63-137.73C979.5,162.21,933.23,134.78,887,117.4,814.24,90,734.45,79.35,657.54,71.31c-7-.73-13.94-1.42-20.93-2">
-                                        </path>
-                                    </svg>
-                                </a>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-6">
-                        <section class="section-background parallax position-relative">
-                            <a href="" class="position-absolute bottom-0 end-0 text-white animated-button m-4">
-                                Read More
-                                <svg class="pxl-svg-line" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 407">
-                                    <path
-                                        d="M972.93,86.54S671-39.25,337.37,29.6c-80.16,16.54-161,42.55-230.72,86.3-41.44,26-92,65.5-97.81,118.12-6,54.11,45,90.17,88,110.52,70.87,33.53,149.4,43.59,226.73,49.23,125.73,9.17,252.43,1.74,377.33-14.07,51.43-6.5,102.76-14.71,152.76-28.37,61-16.66,156.08-57.51,137.63-137.73C979.5,162.21,933.23,134.78,887,117.4,814.24,90,734.45,79.35,657.54,71.31c-7-.73-13.94-1.42-20.93-2">
-                                    </path>
-                                </svg>
-                            </a>
-                        </section>
-                        <section class="section-background parallax1 position-relative">
-                            <a href="" class="position-absolute bottom-0 end-0 text-white animated-button m-4">
-                                Read More
-                                <svg class="pxl-svg-line" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 407">
-                                    <path
-                                        d="M972.93,86.54S671-39.25,337.37,29.6c-80.16,16.54-161,42.55-230.72,86.3-41.44,26-92,65.5-97.81,118.12-6,54.11,45,90.17,88,110.52,70.87,33.53,149.4,43.59,226.73,49.23,125.73,9.17,252.43,1.74,377.33-14.07,51.43-6.5,102.76-14.71,152.76-28.37,61-16.66,156.08-57.51,137.63-137.73C979.5,162.21,933.23,134.78,887,117.4,814.24,90,734.45,79.35,657.54,71.31c-7-.73-13.94-1.42-20.93-2">
-                                    </path>
-                                </svg>
-                            </a>
-                        </section>
-
-                        <section class="section-background parallax2 position-relative">
-                            <a href="" class="position-absolute bottom-0 end-0 text-white animated-button m-4">
-                                Read More
-                                <svg class="pxl-svg-line" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 407">
-                                    <path
-                                        d="M972.93,86.54S671-39.25,337.37,29.6c-80.16,16.54-161,42.55-230.72,86.3-41.44,26-92,65.5-97.81,118.12-6,54.11,45,90.17,88,110.52,70.87,33.53,149.4,43.59,226.73,49.23,125.73,9.17,252.43,1.74,377.33-14.07,51.43-6.5,102.76-14.71,152.76-28.37,61-16.66,156.08-57.51,137.63-137.73C979.5,162.21,933.23,134.78,887,117.4,814.24,90,734.45,79.35,657.54,71.31c-7-.73-13.94-1.42-20.93-2">
-                                    </path>
-                                </svg>
-                            </a>
-                        </section>
-                        <section class="section-background parallax3 position-relative">
-                            <a href="" class="position-absolute bottom-0 end-0 text-white animated-button m-4">
-                                Read More
-                                <svg class="pxl-svg-line" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 407">
-                                    <path
-                                        d="M972.93,86.54S671-39.25,337.37,29.6c-80.16,16.54-161,42.55-230.72,86.3-41.44,26-92,65.5-97.81,118.12-6,54.11,45,90.17,88,110.52,70.87,33.53,149.4,43.59,226.73,49.23,125.73,9.17,252.43,1.74,377.33-14.07,51.43-6.5,102.76-14.71,152.76-28.37,61-16.66,156.08-57.51,137.63-137.73C979.5,162.21,933.23,134.78,887,117.4,814.24,90,734.45,79.35,657.54,71.31c-7-.73-13.94-1.42-20.93-2">
-                                    </path>
-                                </svg>
-                            </a>
-                        </section>
-
-
-                    </div>
-                    <div class="col-sm-6 col-lg-6 d-none">
-                        <div class="card my-3">
-                            <div class="case-study-images">
-                                <img src="./assets/images/slider image 1.png" class="img-fluid rounded"
-                                    alt="Here is an image" />
-                                <div class="case-study-overlay"></div>
-                                <a href="" class="position-absolute bottom-0 end-0 text-white animated-button m-4">
-                                    Read More
-                                    <svg class="pxl-svg-line" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 407">
-                                        <path
-                                            d="M972.93,86.54S671-39.25,337.37,29.6c-80.16,16.54-161,42.55-230.72,86.3-41.44,26-92,65.5-97.81,118.12-6,54.11,45,90.17,88,110.52,70.87,33.53,149.4,43.59,226.73,49.23,125.73,9.17,252.43,1.74,377.33-14.07,51.43-6.5,102.76-14.71,152.76-28.37,61-16.66,156.08-57.51,137.63-137.73C979.5,162.21,933.23,134.78,887,117.4,814.24,90,734.45,79.35,657.54,71.31c-7-.73-13.94-1.42-20.93-2">
-                                        </path>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="card my-3">
-                            <div class="case-study-images">
-                                <img src="./assets/images/slider image 2.png" class="img-fluid rounded"
-                                    alt="Here is an image" />
-                                <div class="case-study-overlay"></div>
-                                <a href="" class="position-absolute bottom-0 end-0 text-white animated-button m-4">
-                                    Read More
-                                    <svg class="pxl-svg-line" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 407">
-                                        <path
-                                            d="M972.93,86.54S671-39.25,337.37,29.6c-80.16,16.54-161,42.55-230.72,86.3-41.44,26-92,65.5-97.81,118.12-6,54.11,45,90.17,88,110.52,70.87,33.53,149.4,43.59,226.73,49.23,125.73,9.17,252.43,1.74,377.33-14.07,51.43-6.5,102.76-14.71,152.76-28.37,61-16.66,156.08-57.51,137.63-137.73C979.5,162.21,933.23,134.78,887,117.4,814.24,90,734.45,79.35,657.54,71.31c-7-.73-13.94-1.42-20.93-2">
-                                        </path>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="card my-3">
-                            <div class="case-study-images">
-                                <img src="./assets/images/slider image 3.png" class="img-fluid rounded"
-                                    alt="Here is an image" />
-                                <div class="case-study-overlay"></div>
-                                <a href="" class="position-absolute bottom-0 end-0 text-white animated-button m-4">
-                                    Read More
-                                    <svg class="pxl-svg-line" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 407">
-                                        <path
-                                            d="M972.93,86.54S671-39.25,337.37,29.6c-80.16,16.54-161,42.55-230.72,86.3-41.44,26-92,65.5-97.81,118.12-6,54.11,45,90.17,88,110.52,70.87,33.53,149.4,43.59,226.73,49.23,125.73,9.17,252.43,1.74,377.33-14.07,51.43-6.5,102.76-14.71,152.76-28.37,61-16.66,156.08-57.51,137.63-137.73C979.5,162.21,933.23,134.78,887,117.4,814.24,90,734.45,79.35,657.54,71.31c-7-.73-13.94-1.42-20.93-2">
-                                        </path>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="card my-3">
-                            <div class="case-study-images">
-                                <img src="./assets/images/slider image 1.png" class="img-fluid rounded"
-                                    alt="Here is an image" />
-                                <div class="case-study-overlay"></div>
-                                <a href="" class="position-absolute bottom-0 end-0 text-white animated-button m-4">
-                                    Read More
-                                    <svg class="pxl-svg-line" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 407">
-                                        <path
-                                            d="M972.93,86.54S671-39.25,337.37,29.6c-80.16,16.54-161,42.55-230.72,86.3-41.44,26-92,65.5-97.81,118.12-6,54.11,45,90.17,88,110.52,70.87,33.53,149.4,43.59,226.73,49.23,125.73,9.17,252.43,1.74,377.33-14.07,51.43-6.5,102.76-14.71,152.76-28.37,61-16.66,156.08-57.51,137.63-137.73C979.5,162.21,933.23,134.78,887,117.4,814.24,90,734.45,79.35,657.54,71.31c-7-.73-13.94-1.42-20.93-2">
-                                        </path>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="news-letter-section" style="margin: 5rem 0rem;">
-            <div class="container">
-                <div class="card border-0 shadow p-1 p-xl-4 position-relative">
-                    <div class="position-absolute top-0 end-0"
-                        style="width: 80px; height: 80px; margin-right: -30px; margin-top: -30px;"><img
-                            src="./assets/images/img-002.png" class="img-fluid" /></div>
+                <div class="footer-day-time">
                     <div class="row">
-                        <div class="col-sm-6 col-xl-6">
-                            <img src="./assets/images/pexels-goumbik-653429.jpg" class="img-fluid rounded"
-                                alt="Here is an image" />
-                        </div>
-                        <style>
-
-                        </style>
-                        <div class="col-sm-6 col-xl-6">
-                            <div class="d-flex justify-content-center align-items-center w-100 h-100">
-                                <div class="card bg-transparent border-0">
-                                    <div class="text-center">
-                                        <img src="./assets/images/undefined - Imgur.png" class="img-fluid w-25"
-                                            alt="Here is an image" />
-                                        <span class="d-block mt-3">Subscribe to our newsletter in order not to miss new
-                                            arrivals
-                                            <br> promotions and discounts of our store</span>
-                                    </div>
-                                    <div class="mx-1 mx-xl-5 my-3">
-                                        <div class="h-search-form">
-                                            <form action="#">
-                                                <input type="search" name="search" class="ps-3"
-                                                    placeholder="Enter Email">
-                                                <button>Subscribe</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-
-        <footer>
-            <div class="footer-top">
-                <div class="container">
-                    <div class="footer-day-time">
-                        <div class="row">
-                            <div class="col-md-6 col-xl-8">
-                                <ul>
-                                    <li>Opening Hours: Mon - Friday: 8AM - 5PM</li>
-                                    <li>Sunday: 8:00 AM - 12:00 PM</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6 col-xl-4">
-                                <div class="phone-no pt-3 pt-xl-0">
-                                    <a href="tel:+12 34 56 78 90"><i class="fa fa-mobile" aria-hidden="true"></i>Call
-                                        +12 34
-                                        56 78 90</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-4">
-
-                            <h4>About us</h4>
-                            <p>Lorem Ipsum ist einfach Dummy-Text der Druck- und Satzindustrie. Lorem Ipsum war der
-                                Standard
-                                der Branche Lorem Ipsum ist einfach Dummy-Text der Druck- und Satzindustrie. Lorem Ipsum
-                                war
-                                der Standard der Branche </p>
-
-                        </div>
-
-                        <div class="col-md-4">
-                            <h4>Information</h4>
-                            <ul class="address1">
-                                <li><i class="fa fa-map-marker"></i>Lorem Ipsum 132 xyz Lorem Ipsum</li>
-                                <li><i class="fa fa-envelope"></i><a href="mailto:#">info@test.com</a></li>
-                                <li><i class="fa fa-mobile" aria-hidden="true"></i> <a href="tel:12 34 56 78 90">12 34
-                                        56 78
-                                        90</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="col-md-4">
-                            <h4>Follow us</h4>
-                            <ul class="social-icon">
-                                <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-5">
-                            <p class="copyright text-uppercase">Copyright © 2018
-                            </p>
-                        </div>
-                        <div class="col-sm-7">
+                        <div class="col-md-6 col-xl-8">
                             <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Our services</a></li>
-                                <li><a href="#">Contact Us</a></li>
+                                <li>Opening Hours: Mon - Friday: 8AM - 5PM</li>
+                                <li>Sunday: 8:00 AM - 12:00 PM</li>
                             </ul>
+                        </div>
+                        <div class="col-md-6 col-xl-4">
+                            <div class="phone-no pt-3 pt-xl-0">
+                                <a href="tel:+12 34 56 78 90"><i class="fa fa-mobile" aria-hidden="true"></i>Call
+                                    +12 34
+                                    56 78 90</a>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-lg-4">
+
+                        <h4>About us</h4>
+                        <p>Lorem Ipsum ist einfach Dummy-Text der Druck- und Satzindustrie. Lorem Ipsum war der
+                            Standard
+                            der Branche Lorem Ipsum ist einfach Dummy-Text der Druck- und Satzindustrie. Lorem Ipsum
+                            war
+                            der Standard der Branche </p>
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <h4>Information</h4>
+                        <ul class="address1">
+                            <li><i class="fa fa-map-marker"></i>Lorem Ipsum 132 xyz Lorem Ipsum</li>
+                            <li><i class="fa fa-envelope"></i><a href="mailto:#">info@test.com</a></li>
+                            <li><i class="fa fa-mobile" aria-hidden="true"></i> <a href="tel:12 34 56 78 90">12 34
+                                    56 78
+                                    90</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h4>Follow us</h4>
+                        <ul class="social-icon">
+                            <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                        </ul>
+                    </div>
+
+                </div>
             </div>
-        </footer>
-        <!-- Jquery for nav scroll needed -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <p class="copyright text-uppercase">Copyright © 2018
+                        </p>
+                    </div>
+                    <div class="col-sm-7">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Our services</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Jquery for nav scroll needed -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-        <!-- swipper slider -->
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <!-- swipper slider -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 
-        <!-- bootstrap 5 main.js-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
-        <!-- custom js -->
-        <script src="./assets/js/main.js"></script>
+    <!-- bootstrap 5 main.js-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <!-- custom js -->
+    <script src="./assets/js/main.js"></script>
 </body>
 
 </html>
