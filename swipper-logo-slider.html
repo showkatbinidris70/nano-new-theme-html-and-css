@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .swiper-wrapper {
+            transition-timing-function: linear;
+        }
+
+        .swiper-slide {
+            display: flex;
+            padding: 0 10px;
+            width: auto;
+        }
+
+        .swiper-slide img {
+            width: 150px;
+        }
+
+        .swiper::before,
+        .swiper::after {
+            content: "";
+            width: 400px;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 11;
+            background-image: linear-gradient(90deg, #000, transparent);
+        }
+
+        .swiper::after {
+            left: auto;
+            right: 0;
+            background-image: linear-gradient(270deg, #000, transparent);
+        }
+
+        section {
+            padding: 70px 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: #000;
+        }
+
+        .container {
+            max-width: 1240px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section>
+        <div class="container">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250"
+                            alt="" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250"
+                            alt="" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250"
+                            alt="" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250"
+                            alt="" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250"
+                            alt="" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250"
+                            alt="" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250"
+                            alt="" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250"
+                            alt="" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250"
+                            alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".swiper", {
+            slidesPerView: 'auto',
+            loop: true,
+            centeredSlides: true,
+            speed: 700,
+            allowTouchMove: true,
+            disableOnInteraction: false,
+            autoplay: {
+                delay: 1
+            },
+        });
+    </script>
+</body>
+
+</html>
